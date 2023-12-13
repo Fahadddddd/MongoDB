@@ -7,7 +7,7 @@ const app = express();
 
 
 const EmployeeRoute = require('./routes/employee')
-
+const AuthRoute = require('./routes/auth')
 mongoose.connect('mongodb://127.0.0.1:27017/testdb',{useNewUrlParser : true, useUnifiedTopology: true});
 const db = mongoose.connection;
 
@@ -30,3 +30,4 @@ app.listen(PORT ,() =>{
 })
 
 app.use('/api/employee', EmployeeRoute)
+app.use('/api', AuthRoute)
